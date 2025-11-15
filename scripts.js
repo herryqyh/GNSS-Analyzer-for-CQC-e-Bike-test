@@ -359,6 +359,11 @@ function createErrorChart(data, distances, baseLon, baseLat, baseAlt, startTime)
   const chartCanvas = document.getElementById('errorChart');
   if (chartCanvas.chart) {
     chartCanvas.chart.destroy();
+    // 强制canvas恢复宽高样式
+    chartCanvas.style.width = '100%';
+    chartCanvas.style.height = '100%';
+    chartCanvas.width = chartCanvas.parentNode.offsetWidth;
+    chartCanvas.height = chartCanvas.parentNode.offsetHeight;
   }
 
   // 准备图表数据
