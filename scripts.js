@@ -597,8 +597,8 @@ document.getElementById('excelFile').addEventListener('change', function(e){
   // 筛选有效的数据行
   }).filter(r => !isNaN(r.time.getTime()) && !isNaN(r.lon) && !isNaN(r.lat) && !isNaN(r.altitude));
 
-      // 时间升序排序
-      allData.sort((a,b) => a.time - b.time);
+      // 时间升序排序 不要sort，否则遇到无GPS定位的数据行时，会被放到表格最前
+      //allData.sort((a,b) => a.time - b.time);
 
       if (allData.length === 0) {
         log("没有找到有效数据，请检查Excel文件格式", 'error');
